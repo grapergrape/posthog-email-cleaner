@@ -31,7 +31,7 @@ function processEvent(event) {
 
     // Calculate fake email probability
     const localPart = email.split('@')[0];
-    const lengthFactor = localPart.length >= 18 ? localPart.length / 50 : 0; // No length factor if length is below 18
+    const lengthFactor = localPart.length >= 18 ? localPart.length / 100 : 0; // No length factor if length is below 18
 
     const digits = localPart.match(/\d/g) || [];
     const distinctDigits = new Set(digits).size;
