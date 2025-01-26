@@ -1,0 +1,17 @@
+{
+    "name": "Email Cleaner",
+    "config": [
+      {
+        "markdown": "This plugin processes events to determine if an email comes from a free provider. Configure the list of free email providers and any internal domains."
+      },
+      {
+        "key": "free_email_providers",
+        "name": "Free Email Providers",
+        "type": "string",
+        "hint": "Comma-separated list of free email domains. Example: `gmail.com,yahoo.com`",
+        "default": "gmail.com,outlook.com,hotmail.com,yahoo.com,aol.com",
+        "required": false
+      }
+    ]
+  }
+  

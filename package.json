@@ -1,0 +1,20 @@
+{
+    "name": "email_cleaner",
+    "version": "0.0.1",
+    "description": "Posthog app that marks emails as free or ",
+    "main": "index.js",
+    "author": "Gasper Skornik <gasper.skornik@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+      "start": "node index.ts",
+      "test": "node index.ts test",
+      "verbose_test": "node index.ts verbose_test"
+    },
+    "dependencies": {
+      "@posthog/plugin-scaffold": "^1.3.4"
+    },
+    "devDependencies": {
+      "@types/node": "^18.11.18"
+    }
+  }
+  
