@@ -1,5 +1,8 @@
 {
     "name": "Email Cleaner",
+    "url": "https://github.com/grapergrape/posthog-email-cleaner",
+    "description": "A project that cleansup the posthog persons email proeprty after the person is identified and also sets the probability that its an actual person and not a bot",
+    "main": "index.ts",
     "config": [
       {
         "markdown": "This plugin processes events to determine if an email comes from a free provider. Configure the list of free email providers and any internal domains."
