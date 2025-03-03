@@ -57,27 +57,28 @@ export function processEvent(event: any) {
             }
         });
 
-        // Calculate fake email probability
+        // split to local part and domain
         const localPart = email.split('@')[0];
 
-        // Length factor
+        // After length reaches 18 use weight 100 to calculate length factor
         const lengthFactor = localPart.length >= 18 ? localPart.length / 100 : 0;
 
-        // Digit factor
+        // Assess the complexity of the local part (more complex = more likely to be fake as it is harder to remember)
         const digits = localPart.match(/\d/g) || [];
         const distinctDigits = new Set(digits).size;
         const excessDistinctDigits = Math.max(0, distinctDigits - 4);
         const digitFactor = excessDistinctDigits > 0 ? Math.pow(2, excessDistinctDigits) * 0.1 : 0;
 
-        // Character variety factor
+        
         const hasLowercase = /[a-z]/.test(localPart);
         const hasUppercase = /[A-Z]/.test(localPart);
         const hasDigits = /\d/.test(localPart);
         const hasSymbols = /[^a-zA-Z\d]/.test(localPart);
 
         const charTypes = [hasLowercase, hasUppercase, hasDigits, hasSymbols];
-        const varietyFactor = charTypes.filter(Boolean).length / 4 * 0.5; // Increased impact, up to 0.5
+        const varietyFactor = charTypes.filter(Boolean).length / 4 * 0.25; // Increased impact, up to 0.25
 
+        // transform the factors into a probability
         fakeProbability = Math.min(1, lengthFactor + digitFactor + varietyFactor);
     }
 
@@ -96,18 +97,5 @@ export function processEvent(event: any) {
             },
         },
     };
-
-    console.log(processedEvent); // Log the processed event
     return processedEvent;
 }
-
-// Test the function with the given email
-const testEvent = {
-    properties: {
-        $set: {
-            email: 'sara.testjoan+2753@getjoan.com',
-        },
-    },
-};
-
-processEvent(testEvent);
