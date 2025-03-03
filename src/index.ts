@@ -7,7 +7,7 @@ interface MailcheckSuggestion {
     full: string;
 }
 
-function processEvent(event: any) {
+export function processEvent(event: any) {
     const email =
         event.properties?.$set?.email ||
         event.properties?.$set_once?.email;
