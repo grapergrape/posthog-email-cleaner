@@ -5,5 +5,21 @@
   "main": "index.js",
   "repository": "git@github.com:grapergrape/posthog-email-cleaner.git",
   "author": "<gasper.skornik@visionect.com>",
-  "license": "MIT"
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "test": "ts-node src/index.ts test",
+    "verbose_test": "ts-node src/index.ts verbose_test"
+  }
+
+  ,
+  "license": "MIT",
+  "dependencies": {
+    "mailcheck": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/mailcheck": "^1.1.37",
+    "@types/node": "^22.13.8",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
 }
