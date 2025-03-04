@@ -1,4 +1,4 @@
-import { BLACKLIST } from './blacklist'; // Ensure this file exists and is properly configured
+import { BLACKLIST } from './blacklist';
 import Mailcheck from 'mailcheck';
 
 interface MailcheckSuggestion {
